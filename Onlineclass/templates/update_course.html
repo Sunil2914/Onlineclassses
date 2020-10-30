@@ -1,0 +1,116 @@
+{% extends 'common.html' %}
+
+{% block pwn %}
+     {% include 'admin_menu.html' %}
+
+      <form action="http://127.0.0.1:5000/save_update_course" method="post">
+     <table align="center" border="0">
+             <tr>
+
+                    <th style="width: 100px;text-align:center; font-family:'Agency FB'; background-color:green;color: white">
+                 Update Class Details
+                    </th>
+             </tr>
+     <tr>
+         <th>
+           <input type="hidden" value="{{ data[0] }}" name="c0">
+           <input
+                   placeholder="Coursename"
+                   name="c1"
+                   value="{{ data[1]}}"
+                   required
+                   type="text"
+                  class="form-control"
+                 aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default">
+         </th>
+     </tr>
+     <tr>
+         <th>
+
+           <input
+                   placeholder="FacultyName"
+                   name="c2"
+                   value="{{ data[2] }}"
+                   required
+                   type="text"
+                  class="form-control"
+                 aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default">
+         </th>
+     </tr>
+     <tr>
+         <th>
+
+           <input
+                   placeholder="Date of start"
+                   name="c3"
+                   value="{{ data[3] }}"
+                   required
+                   type="date"
+                  class="form-control"
+                 aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default">
+         </th>
+     </tr>
+     <tr>
+         <th>
+
+           <input
+                   placeholder="Time"
+                   name="c4"
+                   value="{{ data[4] }}"
+                   required
+                   type="time"
+                  class="form-control"
+                 aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default">
+         </th>
+     </tr>
+     <tr>
+         <th>
+
+           <input
+                   placeholder="Fee"
+                   name="c5"
+                   value="{{ data[5] }}"
+                   required
+                   type="number"
+                  class="form-control"
+                 aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default">
+         </th>
+     </tr>
+     <tr>
+         <th>
+
+           <input
+                   placeholder="Duration"
+                   name="c6"
+                   value="{{ data[6] }}"
+                   required
+                   type="number"
+                  class="form-control"
+                 aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default">
+         </th>
+     </tr>
+
+           <tr>
+               <th style="text-align: center">
+                   <button type="submit" class="btn btn-primary">Update</button>
+               </th>
+           </tr>
+              {%  if message %}
+                <tr>
+                    <th>
+                      <div class="alert alert-danger" role="alert">
+                          {{ message }}
+                      </div>
+                    </th>
+                </tr>
+              {% endif %}
+
+     </table>
+    </form>
+{% endblock %}

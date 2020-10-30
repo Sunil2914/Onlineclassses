@@ -1,0 +1,110 @@
+{% extends 'common.html' %}
+
+{% block pwn %}
+     {% include 'admin_menu.html' %}
+
+      <form action="http://127.0.0.1:5000/save_course" method="post">
+     <table align="center" border="0">
+             <tr>
+
+                    <th style="width: 100px;text-align:center; font-family:'Agency FB'; background-color:green;color: white">
+                 New Class Details
+                    </th>
+             </tr>
+     <tr>
+         <th>
+
+           <input
+                   placeholder="Coursename"
+                   name="c1"
+                   required
+                   type="text"
+                  class="form-control"
+                 aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default">
+         </th>
+     </tr>
+     <tr>
+         <th>
+
+           <input
+                   placeholder="FacultyName"
+                   name="c2"
+                   required
+                   type="text"
+                  class="form-control"
+                 aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default">
+         </th>
+     </tr>
+     <tr>
+         <th>
+
+           <input
+                   placeholder="Date of start"
+                   name="c3"
+                   required
+                   type="date"
+                  class="form-control"
+                 aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default">
+         </th>
+     </tr>
+     <tr>
+         <th>
+
+           <input
+                   placeholder="Time"
+                   name="c4"
+                   required
+                   type="time"
+                  class="form-control"
+                 aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default">
+         </th>
+     </tr>
+     <tr>
+         <th>
+
+           <input
+                   placeholder="Fee"
+                   name="c5"
+                   required
+                   type="number"
+                  class="form-control"
+                 aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default">
+         </th>
+     </tr>
+     <tr>
+         <th>
+
+           <input
+                   placeholder="Duration"
+                   name="c6"
+                   required
+                   type="number"
+                  class="form-control"
+                 aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default">
+         </th>
+     </tr>
+
+           <tr>
+               <th style="text-align: center">
+                   <button type="submit" class="btn btn-primary">Save</button>
+               </th>
+           </tr>
+              {%  if message %}
+                <tr>
+                    <th>
+                      <div class="alert alert-danger" role="alert">
+                          {{ message }}
+                      </div>
+                    </th>
+                </tr>
+              {% endif %}
+
+     </table>
+    </form>
+{% endblock %}

@@ -1,0 +1,50 @@
+
+{% extends 'common.html' %}
+
+{% block pwn %}
+    <style>
+    .admin-login{
+        text-align: center;
+
+    }
+    </style>
+    <form action="http://127.0.0.1:5000/validate_admin" method="post">
+        <table align="center" border="0">
+     <tr>
+         <th rowspan="5">
+             <img src="{{ url_for('static',filename='images/admin.png' )}}">
+         </th>
+         <th style="width: 300px;text-align:center; font-family:'Agency FB'; background-color:green;color: white">
+             Admin Login Page
+         </th>
+     </tr>
+     <tr>
+         <th class="admin-login">
+             <input type="text" placeholder="Username" name="t1" required>
+         </th>
+     </tr>
+     <tr>
+         <th class="admin-login">
+             <input type="password" placeholder="Password" name="t2" required pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
+         </th>
+     </tr>
+     <tr>
+         <th class="admin-login">
+             <button type="submit" >Login</button>
+         </th>
+     </tr>
+            {% if message %}
+            <tr>
+                <th class="admin-login">
+                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                     <strong>{{ message.error }}</strong>
+                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                </th>
+            </tr>
+            {% endif %}
+        </table>
+    </form>
+{% endblock %}

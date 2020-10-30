@@ -1,0 +1,42 @@
+
+{% extends 'common.html' %}
+
+{% block pwn %}
+      {% include 'admin_menu.html' %}
+    <table align="center" border="2">
+    <tr>
+        <th  colspan="9" style="width: 100px;text-align:center; font-family:'Agency FB'; background-color:green;color: white">
+            Schedule Classes Details
+        </th>
+    </tr>
+    <tr>
+        <th width="100" class="vsc">Course Id</th>
+        <th width="100" class="vsc">Course Name</th>
+        <th width="100" class="vsc">Faculty Name</th>
+        <th width="100" class="vsc">Date</th>
+        <th width="100" class="vsc">Time</th>
+        <th width="100" class="vsc">Fee</th>
+        <th width="100" class="vsc">Duration</th>
+        <th width="100" class="vsc">Update</th>
+        <th width="100" class="vsc">Delete</th>
+    </tr>
+     {% for x in data %}
+          <tr>
+          {% for y in x %}
+               <th>{{ y }}</th>
+          {% endfor %}
+                    <th class="vsc">
+                        <a href="http://127.0.0.1:5000/update_course?cid={{ x[0]}}">
+                           <img src="{{ url_for('static',filename='images/update.png') }}">
+                        </a>
+                    </th>
+                    <th class="vsc">
+                        <img src="{{ url_for('static',filename='images/trash.png') }}">
+                    </th>
+          </tr>
+
+     {% endfor %}
+
+
+    </table>
+{% endblock %}
